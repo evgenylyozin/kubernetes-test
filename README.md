@@ -32,11 +32,3 @@ microk8s kubectl get services
 ```bash
 curl $clusterip:8081
 ```
-
-## Доп. полезные команды
-
-- Построить образ докера
-
-```bash
-docker build -t 'evgenylyozin/test-kuber-server:0.0.3' .
-```
