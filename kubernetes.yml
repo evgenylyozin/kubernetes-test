@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-server-deployment
+  labels:
+    app: http-server
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: http-server
+  template:
+    metadata:
+      labels:
+        app: http-server
+    spec:
+      containers:
+        - name: http-server
+          resources:
+            requests:
+              memory: '128Mi'
+              cpu: '250m'
+            limits:
+              memory: '256Mi'
+              cpu: '500m'
+          image: evgenylyozin/test-kuber-server:0.0.3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
